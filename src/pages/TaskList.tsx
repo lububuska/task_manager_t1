@@ -1,23 +1,21 @@
-import { Container, Typography, Box, Button, Paper, Chip, Stack } from '@mui/material';
+import { Container, Typography, Box, Button } from '@mui/material';
+import TaskItem from '../components/TaskItem';
 import Grid from '@mui/material/Grid';
 import { colors } from '../styles/colors';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
 export default function TaskListPage() {
-  const tasks = [1, 2, 3, 4, 5, 6];
-  const navigate = useNavigate();
+  const tasks = [1, 2, 3, 4, 5, 6, 7, 8];
 
   return (
-    <Container>
-      <Typography variant="h3">Менеджер задач</Typography>
-      <Box>
-        <Button variant="contained" sx={{ backgroundColor: colors.main || '#1976d2', color: 'black' }}>
-          + Добавить задачу
+    <Container disableGutters maxWidth="xl" sx={{ maxWidth: { xl: '1440px !important' }, mx: 0, px: 0, width: '100%', mb: 0 }}>
+      <Typography variant="h3" sx={{ mb: {xs: 6, sm: 7, md: 8}, fontSize: { xs: 24, sm: 24, md: '2.125rem' } }}>Менеджер задач</Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: { xs: 3, sm: 4, md: 5 }, mb: {xs: 7, sm: 8, md: 9}, px: {xs: 0, sm: 0, md: 7, lg: 0} }}>
+        <Button variant="contained" sx={{ backgroundColor: colors.main || '#1976d2', color: 'black', width: { xs: 200, sm: 250, md: 300 }, height: 45, borderRadius: 30, fontSize: { xs: 13, sm: 18, md: 20 } }}>+ Добавить задачу
         </Button>
-        <Button variant="text">Фильтр</Button>
+        <Button variant="text" sx={{ backgroundColor: 'none', color: 'black', fontSize: { xs: 13, sm: 18, md: 20 } }}>Фильтр</Button>
       </Box>
-      <Grid container spacing={5} justifyContent="center">
+      <Grid container spacing={8} justifyContent="center">
         {tasks.map((task, index) => (
           <Grid
             key={index}
@@ -32,57 +30,7 @@ export default function TaskListPage() {
               justifyContent: 'center',
             }}
           >
-            <Paper
-              elevation={0}
-              onClick={() => navigate(`/task/${task}`)}
-              sx={{
-                width: '100%',
-                maxWidth: 300,
-                aspectRatio: '1 / 1',
-                cursor: 'pointer',
-                transition: 'transform 0.2s ease-in-out',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: 2,
-                fontSize: 24,
-                border: 2,
-                borderColor: 'black',
-                borderRadius: 5,
-                '&:hover': {
-                  transform: 'scale(1.03)',
-                },
-              }}
-            >
-              <Chip 
-                  label='High'
-                  size='small'
-                  sx={{ 
-                    backgroundColor: colors.high,
-                    border: 2,
-                    borderColor: 'black' 
-                  }}
-              />
-              Задача {task}
-              <Typography variant="subtitle1">
-                Описание задачи {task}
-              </Typography>
-              <Stack direction="row" spacing={2}>
-                <Chip 
-                  label='To do'
-                  size='small'
-                  variant='outlined'
-                  sx={{ borderColor: 'black', border: 2 }}
-                />
-                <Chip 
-                  label='Documentary'
-                  size='small'
-                  variant='outlined'
-                  sx={{ borderColor: 'black', border: 2 }}
-                />
-              </Stack>
-            </Paper>
+            <TaskItem taskId={task} />
           </Grid>
         ))}
       </Grid>
