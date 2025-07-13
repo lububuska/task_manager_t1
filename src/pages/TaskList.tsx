@@ -9,7 +9,7 @@ export default function TaskListPage() {
 
   return (
     <Container disableGutters maxWidth="xl" sx={{ maxWidth: { xl: '1440px !important' }, mx: 0, px: 0, width: '100%', mb: 0 }}>
-      <Typography variant="h3" sx={{ mb: {xs: 6, sm: 7, md: 8}, fontSize: { xs: 24, sm: 24, md: '2.125rem' } }}>Менеджер задач</Typography>
+      <Typography variant="h3" sx={{ mb: {xs: 6, sm: 7, md: 8}, fontSize: { xs: 24, sm: 24, md: 40 } }}>Менеджер задач</Typography>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: { xs: 3, sm: 4, md: 5 }, mb: {xs: 7, sm: 8, md: 9}, px: {xs: 0, sm: 0, md: 7, lg: 0} }}>
         <Button variant="contained" sx={{ backgroundColor: colors.main || '#1976d2', color: 'black', width: { xs: 200, sm: 250, md: 300 }, height: 45, borderRadius: 30, fontSize: { xs: 13, sm: 18, md: 20 } }}>+ Добавить задачу
         </Button>
