@@ -4,8 +4,6 @@ import TaskList from './pages/TaskList'
 import TaskDetails from './pages/TaskDetails'
 
 function App() {
-
-
   return (
     <>
       <Routes>
